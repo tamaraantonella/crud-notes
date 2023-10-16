@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
-import { AppService } from './app.service';
 import { NotesModule } from './notes/notes.module';
 
 import configModuleBootstrapper from './bootstrappers/config-module.bootstrapper';
 import typeormModuleBootstrapper from './bootstrappers/typeorm-module.bootstrapper';
+import { APP_PIPE } from '@nestjs/core';
+import { ZodValidationPipe } from 'nestjs-zod';
 
 @Module({
 	imports: [
@@ -11,6 +12,6 @@ import typeormModuleBootstrapper from './bootstrappers/typeorm-module.bootstrapp
 		typeormModuleBootstrapper(),
 		NotesModule
 	],
-	providers: [AppService]
+	providers: [{ provide: APP_PIPE, useClass: ZodValidationPipe }]
 })
 export class AppModule {}
