@@ -6,7 +6,11 @@ import configModuleBootstrapper from './bootstrappers/config-module.bootstrapper
 import typeormModuleBootstrapper from './bootstrappers/typeorm-module.bootstrapper';
 
 @Module({
-	imports: [configModuleBootstrapper(),typeormModuleBootstrapper(),NotesModule],
+	imports: [
+		configModuleBootstrapper(),
+		typeormModuleBootstrapper(),
+		NotesModule
+	],
 	providers: [AppService]
 })
 export class AppModule {}
