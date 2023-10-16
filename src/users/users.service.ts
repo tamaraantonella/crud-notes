@@ -13,11 +13,11 @@ export class UsersService {
 
 	create(createUserDto: CreateUserDto) {
 		return this.userRepository.save(createUserDto);
-  }
+	}
 
-  findOneByEmail(email: string) {
-    return this.userRepository.findOneBy({ email });
-  }
+	findOneByEmail(email: string) {
+		return this.userRepository.findOneBy({ email });
+	}
 
 	findAll() {
 		return `This action returns all users`;

@@ -8,6 +8,6 @@ export default () => ({
 		name: process.env.DB_NAME || ''
 	},
 	auth: {
-		jwtSecret: process.env.JWT_SECRET|| 'secret'
+		jwtSecret: process.env.JWT_SECRET || 'secret'
 	}
 });
