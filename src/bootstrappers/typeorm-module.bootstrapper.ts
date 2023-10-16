@@ -12,7 +12,6 @@ export default () =>
 			username: config.get('database.user'),
 			password: config.get('database.password'),
 			database: config.get('database.name'),
-			entities: [__dirname + '/../**/*.entity{.ts,.js}'],
 			synchronize: true,
 			autoLoadEntities: true
 		})
