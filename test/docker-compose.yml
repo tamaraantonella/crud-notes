@@ -8,7 +8,7 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: db_crud_notes
       MYSQL_USER: crud_notes_user
-      MYSQL_PASSWORD: secretPass123
+      MYSQL_PASSWORD: root
     ports:
       - 3307:3306
     volumes:
