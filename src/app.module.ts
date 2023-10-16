@@ -1,16 +1,19 @@
+import { AuthModule } from '@auth/auth.module';
 import { Module } from '@nestjs/common';
-import { NotesModule } from './notes/notes.module';
+import { APP_PIPE } from '@nestjs/core';
+import { NotesModule } from '@notes/notes.module';
+import { UsersModule } from '@users/users.module';
+import { ZodValidationPipe } from 'nestjs-zod';
 
 import configModuleBootstrapper from './bootstrappers/config-module.bootstrapper';
 import typeormModuleBootstrapper from './bootstrappers/typeorm-module.bootstrapper';
-import { APP_PIPE } from '@nestjs/core';
-import { ZodValidationPipe } from 'nestjs-zod';
-
 @Module({
 	imports: [
 		configModuleBootstrapper(),
 		typeormModuleBootstrapper(),
-		NotesModule
+		NotesModule,
+		UsersModule,
+		AuthModule
 	],
 	providers: [{ provide: APP_PIPE, useClass: ZodValidationPipe }]
 })

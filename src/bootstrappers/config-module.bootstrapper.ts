@@ -1,5 +1,5 @@
+import configuration from '@config/configuration';
 import { ConfigModule } from '@nestjs/config';
-import configuration from '../config/configuration';
 
 export default () =>
 	ConfigModule.forRoot({
