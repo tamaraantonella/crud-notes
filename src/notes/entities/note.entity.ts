@@ -1,8 +1,10 @@
+import { User } from '@users/entities/user.entity';
 import {
 	Column,
 	CreateDateColumn,
 	DeleteDateColumn,
 	Entity,
+	ManyToOne,
 	PrimaryGeneratedColumn
 } from 'typeorm';
 
@@ -18,7 +20,7 @@ export class Note {
 	content: string;
 
 	@Column()
-	createdBy: number;
+	createdBy: string;
 
 	@CreateDateColumn()
 	createdAt: Date;
@@ -28,4 +30,7 @@ export class Note {
 
 	@DeleteDateColumn()
 	deletedAt: Date;
+
+	@ManyToOne(() => User, (user) => user.id, { eager: true })
+	user: User;
 }

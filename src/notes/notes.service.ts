@@ -1,26 +1,36 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { User } from '@users/entities/user.entity';
+import { Repository } from 'typeorm';
 import { CreateNoteDto } from './dto/create-note.dto';
 import { UpdateNoteDto } from './dto/update-note.dto';
+import { Note } from './entities/note.entity';
 
 @Injectable()
 export class NotesService {
-  create(createNoteDto: CreateNoteDto) {
-    return 'This action adds a new note';
-  }
+	constructor(
+		@InjectRepository(Note) private readonly noteRepository: Repository<Note>,
+		@InjectRepository(User) private readonly userRepository: Repository<User>
+	) {}
 
-  findAll() {
-    return `This action returns all notes`;
-  }
+	async create(createNoteDto: CreateNoteDto) {
+		const newNote = this.noteRepository.create(createNoteDto);
+		await this.noteRepository.save(newNote);
+	}
 
-  findOne(id: number) {
-    return `This action returns a #${id} note`;
-  }
+	findAll() {
+		return this.noteRepository.find();
+	}
 
-  update(id: number, updateNoteDto: UpdateNoteDto) {
-    return `This action updates a #${id} note`;
-  }
+	findOne(id: number) {
+		return this.noteRepository.findOneBy({ id });
+	}
 
-  remove(id: number) {
-    return `This action removes a #${id} note`;
-  }
+	update(id: number, updateNoteDto: UpdateNoteDto) {
+		return this.noteRepository.update(id, updateNoteDto);
+	}
+
+	remove(id: number) {
+		return this.noteRepository.softDelete(id);
+	}
 }
