@@ -12,7 +12,7 @@ import {
 import { NotesService } from './notes.service';
 import { CreateNoteDto } from './dto/create-note.dto';
 import { UpdateNoteDto } from './dto/update-note.dto';
-import { AuthGuard } from '@auth/auth.guard';
+import { AuthGuard } from '@auth/guards/auth.guard';
 
 @Controller('notes')
 @UseGuards(AuthGuard)
