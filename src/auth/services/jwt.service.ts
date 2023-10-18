@@ -12,7 +12,7 @@ export class JwtTokenService {
 		this.secretKey = this.configService.get<string>('auth.jwtSecret');
 	}
 
-	async generateJWTToken(email: string, userId: string, role:string) {
+	async generateJWTToken(email: string, userId: string, role: string) {
 		return this.jwtService.signAsync({ email, userId, role });
 	}
 

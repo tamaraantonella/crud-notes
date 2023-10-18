@@ -18,7 +18,6 @@ export class AuthController {
 
 	@Post('register')
 	async register(@Body() registerDto: RegisterDto) {
-		console.log("🚀 ~ file: auth.controller.ts:21 ~ AuthController ~ register ~ registerDto:", registerDto)
 		this.authService.register(registerDto);
 	}
 
@@ -35,9 +34,7 @@ export class AuthController {
 
 	@Post('user')
 	@Auth(Role.ADMIN)
-	modifyUser(
-		@Query('id') id: string,
-		@Body() updateUserDto: UpdateUserDto) {
+	modifyUser(@Query('id') id: string, @Body() updateUserDto: UpdateUserDto) {
 		return this.authService.updateUser(id, updateUserDto);
-	 }
+	}
 }
