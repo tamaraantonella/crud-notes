@@ -13,40 +13,20 @@ The Personal Notes API is a powerful backend service for managing personal notes
 
 1. Clone this repository:
 
-````git clone https://github.com/tuusuario/personal-notes-api.git
+```git clone https://github.com/tuusuario/personal-notes-api.git
 cd personal-notes-api
-````
+```
 
 2. Install dependencies:
-`yarn`
+   `yarn`
 
 3. Set up your database configuration in `.env`, from `.env.example`.
 4. Run the application:
-`yarn start:dev`
+   `yarn start:dev`
 
-## Usage
+## Documentation
 
-This API is designed to be integrated into other applications or used by developers who want to add note management functionality to their projects. Here's how you can interact with the API:
-
-- **Create a new note:**
-
-`POST /notes`
-
-- **Update an existing note:**
-
-`PUT /notes/:id`
-
-- **Delete a note:**
-
-`DELETE /notes/:id`
-
-- **Retrieve all notes:**
-
-`GET /notes`
-
-- **Retrieve a specific note:**
-
-`GET /notes/:id`
+Comprehensive documentation for all endpoints is available through Swagger and can be accessed at /docs.
 
 ## Repository Design Pattern
 

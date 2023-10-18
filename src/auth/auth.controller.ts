@@ -6,12 +6,16 @@ import { RegisterDto } from './dto/register.dto';
 import { Role } from './enums/role.enum';
 import { AuthService } from './services/auth.service';
 import { UpdateUserDto } from '@users/dto/update-user.dto';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 interface RequestWithUser extends Request {
 	[x: string]: any;
 	email: string;
 	role: string;
 }
+
+@ApiTags('auth')
+@ApiBearerAuth()
 @Controller('auth')
 export class AuthController {
 	constructor(private authService: AuthService) {}

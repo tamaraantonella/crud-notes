@@ -1,19 +1,21 @@
+import { AuthGuard } from '@auth/guards/auth.guard';
 import {
-	Controller,
-	Get,
-	Post,
 	Body,
-	Patch,
-	Param,
+	Controller,
 	Delete,
+	Get,
+	Param,
 	ParseIntPipe,
+	Patch,
+	Post,
 	UseGuards
 } from '@nestjs/common';
-import { NotesService } from './notes.service';
+import { ApiTags } from '@nestjs/swagger';
 import { CreateNoteDto } from './dto/create-note.dto';
 import { UpdateNoteDto } from './dto/update-note.dto';
-import { AuthGuard } from '@auth/guards/auth.guard';
+import { NotesService } from './notes.service';
 
+@ApiTags('notes')
 @Controller('notes')
 @UseGuards(AuthGuard)
 export class NotesController {
