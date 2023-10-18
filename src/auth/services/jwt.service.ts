@@ -12,8 +12,8 @@ export class JwtTokenService {
 		this.secretKey = this.configService.get<string>('auth.jwtSecret');
 	}
 
-	async generateJWTToken(email: string, userId: string) {
-		return this.jwtService.signAsync({ email, userId });
+	async generateJWTToken(email: string, userId: string, role:string) {
+		return this.jwtService.signAsync({ email, userId, role });
 	}
 
 	async isValidToken(token: string) {
