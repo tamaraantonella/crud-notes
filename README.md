@@ -7,7 +7,6 @@ The Personal Notes API is a powerful backend service for managing personal notes
 - Create new notes
 - Update existing notes
 - Delete notes
-- Organize notes
 
 ## Installation
 
@@ -20,7 +19,7 @@ cd personal-notes-api
 2. Install dependencies:
    `yarn`
 
-3. Set up your database configuration in `.env`, from `.env.example`.
+3. Set up your database configuration in `.env`, from `.default.env`.
 4. Run the application:
    `yarn start:dev`
 
